@@ -1,10 +1,10 @@
 
-# The Mini project was devided into two Parts: Maria is working on the passwrord validation logic and I am working on the user interface.
-# The code below is the user interface for the password validation project.
-# The code is designed to prompt the user for a password and check if it meets certain criteria.
+# Password Validator Project
+# Maria - Validation Logic | Franklin - User Interface
 
-# Defined a list called 'rules' that holds each password requirement, this was provided on the assigment documentation.
-# Each rule is represented as a string and we used emojis to make it fun and easy to understand.
+import re
+
+#Password rules display to the user
 rules = [
     "✨ Contains 8–16 characters",
     "🔒 Contains one of the special characters: %$#^&*!@()",
@@ -16,56 +16,28 @@ rules = [
     "🚫 Does not contain the phrase '123'",  
 ]
 
-#This function prints the list of rules to the screen for the user to see.
-#we are using the for loop to go through each rules one at a time and print it.
-#We are using \n to create a new line after each rule and \t\t to create a tab space before each rule.
-
+#Show rules to the user
 def show_rules():
     print("\nThe password must follow these rules: \n\t\t")
     for rule in rules:
         print(rule)
 
-#This is what the user will see first before entering the password.
-show_rules()
-
-#Ask the user to enter a password and store it in the cariable called "password"
-password = input("\nPlease enter a password that conforms to the above restrictions:\n\t\t")
-
-#Print the password back to the user so they can see what they entered.
-#This is for testing purposes while the logic is being developed. we will replace it with a validation funtion. 
-#validate_password(password)
-#print(f"Your password is: {password}")
-
-
-# This is a placeholder for the password validation function.
-# This function will be replace once the logic function is deloveloped and the validation function is defined.
-# For testing purposes, the function will pretend the password is always valid
-
+#This will be replaced by Logic Function
 def validate_password(password):
     return []
 
+#Start user interface
+show_rules()
+
+#Ask user for password
+password = input("\nPlease enter a password that conforms to the above restrictions:\n\t\t")
+    print(f"Your password is: {password}")
 
 
+#chech if the password meets the rules
 
-# Validation rule for password length
-def validate_password_length(password):
-    if len(password) < 8 or len(password) > 16:
-        return 'Password needs 8-16 characters'
-    return 'Valid'
-
-#Validation rule for special characters
-def validate_special_characters(password):
-    if not re.search(r'[%$#^&*!@()]', password):
-        return "Password should contain one of the special characters: %$#^&*!@()"
-    return 'Valid'
-
-
-#Use this validation fuction to check if the password meets the requirements.
+#Show Results 
 violations = validate_password(password)
-
-#Password Validation Logic will be  added 
-
-#This is to show feedback to the user if the password is valid or not
 
 if violations:
     print("\nThis password does not meet the following requirements:")
